@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">9kapp</string>
+    <string name="app_name">9k</string>
+    <string name="title_activity_val_av_buss">ValAvBuss</string>
+    <string name="edit_bussNumber">Buss nummer</string>
+    <string name="Start_controll">Påbörja kontroll av: </string>
+    <string name="title_activity_controll_of_buss1">ControllOfBussActivity1</string>
 </resources>
