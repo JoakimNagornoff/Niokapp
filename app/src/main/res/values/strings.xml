@@ -4,4 +4,5 @@
     <string name="edit_bussNumber">Buss nummer</string>
     <string name="Start_controll">Påbörja kontroll av: </string>
     <string name="title_activity_controll_of_buss1">ControllOfBussActivity1</string>
+
 </resources>
