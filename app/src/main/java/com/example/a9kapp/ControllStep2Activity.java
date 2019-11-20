@@ -61,10 +61,6 @@ public class ControllStep2Activity extends AppCompatActivity {
             }
         });
 
-        //Tar emot sharedPreference från föregående aktivitiet, key är test och int är 3.
 
-        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-        int score1 = sharedPref.getInt("test", 0);
-        Log.d("Score1", "" + score1);
     }
 }

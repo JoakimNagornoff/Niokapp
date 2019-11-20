@@ -67,8 +67,5 @@ public class ControllStep4Activity extends AppCompatActivity {
             }
         });
 
-        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-        int score3 = sharedPref.getInt("test3", 0);
-        Log.d("Score3", "" + score3);
     }
 }
