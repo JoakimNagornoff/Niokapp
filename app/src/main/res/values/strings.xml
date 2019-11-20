@@ -5,4 +5,11 @@
     <string name="Start_controll">Påbörja kontroll av: </string>
     <string name="title_activity_controll_of_buss1">ControllOfBussActivity1</string>
 
+    <string name="answer_One">com.example.a9kapp.answerOne</string>
+    <string name="answerTwo">com.example.a9kapp.answerTwo</string>
+    <string name="answerThree">com.example.a9kapp.answerThree</string>
+    <string name="answerFour">com.example.a9kapp.answerFour</string>
+    <string name="answerFive">com.example.a9kapp.answerFive</string>
+
+
 </resources>

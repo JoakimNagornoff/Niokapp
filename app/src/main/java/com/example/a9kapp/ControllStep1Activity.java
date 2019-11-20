@@ -5,11 +5,15 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Adapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -22,10 +26,13 @@ public class ControllStep1Activity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     public RecyclerView.LayoutManager mlayoutManager;
+    private SharedPreferences mPreference;
 
     TextView textView1;
     TextView textView2;
     TextView textView3;
+    Button nextButton;
+    RadioButton radio1;
 
 
     int bussNMR;
@@ -41,6 +48,9 @@ public class ControllStep1Activity extends AppCompatActivity {
         textView2 = (TextView) findViewById(R.id.TextView2);
         textView3 = (TextView) findViewById(R.id.TextView3);
         recyclerView = findViewById(R.id.my_recycler_view);
+        nextButton = findViewById(R.id.button_next);
+
+        radio1 = findViewById(R.id.radioButton1);
 
         //intent från activitet innan.
         Intent iin = getIntent();
@@ -51,7 +61,7 @@ public class ControllStep1Activity extends AppCompatActivity {
             //int bussNMR =(int)b.get("buss");
 
             //textView1.setText(bussNMR);
-            textView2.setText(j);
+            //  textView2.setText(j);
         }
 
 
@@ -73,48 +83,21 @@ public class ControllStep1Activity extends AppCompatActivity {
         mRecyclerView = findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
         mlayoutManager = new LinearLayoutManager(this);
-        mAdapter = new MyAdapter(cardViewList);
+        mAdapter = new MyAdapter(cardViewList,this);
         mRecyclerView.setLayoutManager(mlayoutManager);
         mRecyclerView.setAdapter(mAdapter);
 
+
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent newIntent = new Intent(getApplicationContext(), ControllStep2Activity.class);
+                startActivity(newIntent);
+            }
+        });
+
     }
 }
-
-
-  /*  //RadioGroup1
-    public void onRadioButtonClicked(View view ){
-        boolean checked = ((RadioButton)view).isChecked();
-      //  selectedRadioButton = (RadioButton)findViewById(radioGroup1.getCheckedRadioButtonId());
-
-        switch (view.getId()){
-            case R.id.radioButton1:
-                if(checked) {
-
-                    Log.d("radio", "" + mScore);
-                }
-                break;
-                case R.id.radioButton2:
-                    if(checked)
-                    Log.d("radio", "checked2");
-
-                    break;
-                    case R.id.radioButton3:
-                        if(checked)
-                        Log.d("radio", "check3");
-                        break;
-            case R.id.radioButton4:
-                if(checked)
-                Log.d("radio", "checked4");
-                break;
-
-            case R.id.radioButton5:
-                if(checked)
-                Log.d("radio", "checked5");
-                break;
-
-
-        }
-    }*/
 
 
 

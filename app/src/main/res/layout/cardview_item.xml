@@ -72,13 +72,6 @@
                 android:textSize="30sp"
                 android:padding="10dp" />
 
-            <TextView
-                android:id="@+id/Result_textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="0" />
-
         </RadioGroup>
 
 

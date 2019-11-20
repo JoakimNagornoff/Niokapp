@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DisplayActivity">
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:gravity="center"
+        android:padding="10dp"
+        android:layout_marginBottom="40dp"/>
+
+
+    <TextView
+        android:id="@+id/textViewStep1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Steg1 : "
+        android:layout_below="@+id/textView1"
+        android:textSize="30sp"
+        android:padding="10dp"/>
+
+    <EditText
+        android:id="@+id/editTextStep1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/textViewStep1"
+        android:layout_alignBaseline="@+id/textViewStep1"
+        android:ems="10"
+        android:inputType="number"/>
+
+    <TextView
+        android:id="@+id/textViewStep2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Steg 2: "
+        android:layout_below="@+id/textViewStep1"
+        android:textSize="30sp"
+        android:padding="10dp"/>
+
+        <EditText
+            android:id="@+id/editTextStep2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/textViewStep2"
+            android:layout_alignBaseline="@+id/textViewStep2"
+            android:ems="10"
+            android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textViewStep3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Steg 3: "
+        android:layout_below="@+id/textViewStep2"
+        android:textSize="30sp"
+        android:padding="10dp"/>
+
+        <EditText
+            android:id="@+id/editTextStep3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/textViewStep3"
+            android:layout_alignBaseline="@+id/textViewStep3"
+            android:ems="10"
+            android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textViewStep4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Steg 4: "
+        android:layout_below="@+id/textViewStep3"
+        android:textSize="30sp"
+        android:padding="10dp"/>
+
+    <EditText
+        android:id="@+id/editTextStep4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/textViewStep4"
+        android:layout_alignBaseline="@+id/textViewStep4"
+        android:ems="10"
+        android:inputType="number" />
+
+
+
+
+</RelativeLayout>
