@@ -83,7 +83,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         final cardViewItem currentItem = mCardViewList.get(position);
         holder.mTextView1.setText(currentItem.getText1());
         holder.mTextView2.setText(currentItem.getText2());
-        holder.radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
+        holder.radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 Log.d("radio", "position: " + position);
@@ -109,46 +109,55 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                     sum += item.getmScore();
                 }
                 float awg = sum / mCardViewList.size();
+                Log.d("awg", "" + awg);
+                //  float awgTwo = sum / mCardViewList.size();
                 SharedPreferences mPreference = PreferenceManager.getDefaultSharedPreferences(context);
                 SharedPreferences.Editor editor = mPreference.edit();
 
-                editor.putFloat("test", awg);
-                editor.putFloat("test2", awg);
-                editor.putFloat("test3", awg);
-                editor.putFloat("test4", awg);
+                editor.putFloat("awg", awg);
                 editor.apply();
 
 
 
 
-                float score = mPreference.getFloat("test", -1);
-                if (score < 0) {
-                    float awgOne =(score + awg) / 2;
-                    editor.putFloat("awg1", awgOne);
-                }
-                editor.apply();
-
-
-                float scoreTwo = mPreference.getFloat("test2", 0);
-                if(scoreTwo <1) {
-                    float awgTwo = (scoreTwo + awg) /2;
-                    editor.putFloat("awg2", awgTwo);
-                }
-                editor.apply();
-
-                float scoreThree = mPreference.getFloat("test3", 1);
-                if(scoreThree < 2){
-                    float awgThree = (scoreThree + awg) /2;
-                    editor.putFloat("awg3", awgThree);
-                }
-                editor.apply();
-
-                float scoreFour = mPreference.getFloat("test4", 2);
-                if(scoreFour < 3){
-                    float awgFour = (scoreFour + awg) /2;
-                    editor.putFloat("awg4", awgFour);
-                }
-                editor.apply();
+               /* int count = mPreference.getInt("count", -1);
+              //  int count2 = mPreference.getInt("count2", 1);
+                switch(count) {
+                    case -1:
+                        Log.d("count ", "case1 : " + count);
+                        float score = mPreference.getFloat("awg", -1);
+                        float awgOne = (score + awg) / 2;
+                        Log.d("score", "score1 :" + score);
+                        editor.putFloat("awgOne", awgOne);
+                        editor.putInt("count", 1);
+                        editor.apply();
+                        break;
+                    case 1:
+                        Log.d("count", "case2 :" + count);
+                        float scoreTwo = mPreference.getFloat("awg", 1);
+                        Log.d("score", "score2 : " + scoreTwo);
+                        float awgTwo = (scoreTwo + awg) / 2;
+                        editor.putFloat("awgTwo", awgTwo);
+                        editor.putInt("count", 2);
+                        editor.apply();
+                        break;
+                    case 2:
+                        Log.d("count", "case3 : " + count);
+                        float scoreThree = mPreference.getFloat("awg", 2);
+                        float awgThree = (scoreThree + awg) /2;
+                        editor.putFloat("awgThree", awgThree);
+                        editor.putInt("count", 3);
+                        editor.apply();
+                        break;
+                    case 3:
+                        Log.d("count", "case4 : " + count);
+                        float scoreFour = mPreference.getFloat("awg", 3);
+                        float awgFour = (scoreFour + awg) /2;
+                        editor.putFloat("awgFour", awgFour);
+                        editor.putInt("count", 4);
+                        editor.apply();
+                        break;
+                }*/
             }
 
 

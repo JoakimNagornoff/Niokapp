@@ -21,6 +21,7 @@ public class ControllStep4Activity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     public RecyclerView.LayoutManager mlayoutManager;
 
+
     EditText editText1;
     EditText editText2;
     EditText editText3;
@@ -59,9 +60,18 @@ public class ControllStep4Activity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mlayoutManager);
         mRecyclerView.setAdapter(mAdapter);
 
+        final SharedPreferences mPreference = PreferenceManager.getDefaultSharedPreferences(this);
+        final SharedPreferences.Editor editor = mPreference.edit();
+
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                float awg = mPreference.getFloat("awg", 3);
+              //  float scoreFour = mPreference.getFloat("awg", 3);
+             //   float awgFour = (scoreFour + awg) /2;
+                editor.putFloat("awgFour", awg);
+                editor.apply();
+
                 Intent nextIntent = new Intent(getApplicationContext(), DisplayActivity.class);
                 startActivity(nextIntent);
             }

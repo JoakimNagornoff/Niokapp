@@ -25,18 +25,21 @@ public class DisplayActivity extends AppCompatActivity {
         editText3 = (EditText)findViewById(R.id.editTextStep3);
         editText4 = (EditText) findViewById(R.id.editTextStep4);
 
-        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-        float awgOne = sharedPref.getFloat("awg1", -1);
-        Log.d("awg1", "" + awgOne);
+        SharedPreferences mPreference = PreferenceManager.getDefaultSharedPreferences(this);
 
-        float awgTwo = sharedPref.getFloat("awg2", 0);
-        Log.d("awg2", "" + awgTwo);
 
-        float awgThree = sharedPref.getFloat("awg3", 1);
-        Log.d("awg3", "" + awgThree);
 
-        float scoreFour = sharedPref.getFloat("awg4", 2);
-        Log.d("awg4", "" + scoreFour);
+        float awgOne = mPreference.getFloat("awgOne", -1);
+        Log.d("awg 1  ", "" + awgOne);
+
+        float awgTwo = mPreference.getFloat("awgTwo", 1);
+        Log.d("awg 2  ", "" + awgTwo);
+
+        float awgThree = mPreference.getFloat("awgThree", 2);
+        Log.d("awg 3  ", "" + awgThree);
+
+        float awgFour = mPreference.getFloat("awgFour", 3);
+        Log.d("awg 4  ", "" + awgFour);
 
 
 

@@ -26,7 +26,6 @@ public class ControllStep1Activity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     public RecyclerView.LayoutManager mlayoutManager;
-    private SharedPreferences mPreference;
 
     TextView textView1;
     TextView textView2;
@@ -83,21 +82,35 @@ public class ControllStep1Activity extends AppCompatActivity {
         mRecyclerView = findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
         mlayoutManager = new LinearLayoutManager(this);
-        mAdapter = new MyAdapter(cardViewList,this);
+        mAdapter = new MyAdapter(cardViewList, this);
         mRecyclerView.setLayoutManager(mlayoutManager);
         mRecyclerView.setAdapter(mAdapter);
+
+        final SharedPreferences mPreference = PreferenceManager.getDefaultSharedPreferences(this);
+        final SharedPreferences.Editor editor = mPreference.edit();
+
 
 
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                float awg = mPreference.getFloat("awg", -1);
+
+                        //float score = mPreference.getFloat("awg", -1);
+                        //float awgOne = (score + awg) / 2;
+                       // Log.d("score", "score1 :" + score);
+                        editor.putFloat("awgOne", awg);
+                        editor.apply();
+
+
                 Intent newIntent = new Intent(getApplicationContext(), ControllStep2Activity.class);
                 startActivity(newIntent);
             }
         });
 
+
     }
 }
-
 
 

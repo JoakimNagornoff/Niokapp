@@ -48,9 +48,20 @@ public class ControllStep3Activity extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
 
 
+        final SharedPreferences mPreference = PreferenceManager.getDefaultSharedPreferences(this);
+        final SharedPreferences.Editor editor = mPreference.edit();
+
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                float awg = mPreference.getFloat("awg", 2);
+
+                      //  float scoreThree = mPreference.getFloat("awg", 2);
+                       // float awgThree = (scoreThree + awg) / 2;
+                        editor.putFloat("awgThree", awg);
+                        editor.apply();
+
+
                 Intent nextIntent = new Intent(getApplicationContext(), ControllStep4Activity.class);
                 startActivity(nextIntent);
             }
