@@ -27,7 +27,6 @@ public class ValAvBussActivity extends AppCompatActivity {
     TextView secondTextView;
     Button buttonOK;
     TextView TextView4;
-    int bussNMR;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,16 +44,20 @@ public class ValAvBussActivity extends AppCompatActivity {
 
 
 
+
+
         startControll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // String first = firstTextView.getText().toString();
+                Bundle a = new Bundle();
                 String s = firstTextView.getText().toString();
-               // int newBussNMR = Integer.parseInt(secondTextView.getText().toString());
-                Intent nextActivity= new Intent(getApplicationContext(), ControllStep1Activity.class);
+                a.putString("name", s);
+                String n = secondTextView.getText().toString();
+                a.putString("number",n);
 
+                Intent nextActivity= new Intent(getApplicationContext(), ControllStep1Activity.class);
                 nextActivity.putExtra("name",s);
-                //nextActivity.putExtra("buss",newBussNMR);
+                nextActivity.putExtra("number", n);
                 startActivity(nextActivity);
             }
         });

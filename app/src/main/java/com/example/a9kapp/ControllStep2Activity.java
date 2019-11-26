@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -21,6 +22,8 @@ public class ControllStep2Activity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     public RecyclerView.LayoutManager mlayoutManager;
 
+    TextView Tv1;
+    TextView Tv2;
     Button nextButtomtwo;
 
     @Override
@@ -29,10 +32,22 @@ public class ControllStep2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_controll_step2);
 
         nextButtomtwo = findViewById(R.id.button_nexttwo);
+        Tv1 = findViewById(R.id.TextViewBussNmr);
+        Tv2 = findViewById(R.id.TextViewBusType);
 
 
 
-        //skapar arraylast PassagerarCard
+        Intent iin = getIntent();
+        Bundle b = iin.getExtras();
+
+        if (b != null) {
+            String j = (String) b.get("name");
+            Tv2.setText(j);
+            String n = (String) b.get("number");
+            Tv1.setText(n);
+        }
+
+            //skapar arraylast PassagerarCard
         ArrayList<cardViewItem> passengerCard = new ArrayList<>();
         passengerCard.add(new cardViewItem("Passagerarplats","Fönster"));
         passengerCard.add(new cardViewItem("Passagerarplats","golv"));
@@ -57,18 +72,21 @@ public class ControllStep2Activity extends AppCompatActivity {
         nextButtomtwo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent newIntent = new Intent(getApplicationContext(), ControllStep3Activity.class);
-                startActivity(newIntent);
-
                 float awg = mPreference.getFloat("awg", 1);
-             //   int count = mPreference.getInt("count", -1);
-           //     Log.d("count", "case2 :" + count);
-                   //     float scoreTwo = mPreference.getFloat("awg", 1);
-                 //       Log.d("score", "score2 : " + scoreTwo);
-                   //     float awgTwo = (scoreTwo + awg) / 2;
                         editor.putFloat("awgTwo", awg);
                         editor.apply();
 
+
+                Bundle b = new Bundle();
+                String s = Tv1.getText().toString();
+                b.putString("name", s);
+                String n = Tv2.getText().toString();
+                b.putString("number",n);
+
+                Intent newIntent = new Intent(getApplicationContext(), ControllStep3Activity.class);
+                newIntent.putExtra("name", s);
+                newIntent.putExtra("number",n);
+                startActivity(newIntent);
 
 
             }

@@ -76,13 +76,13 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/TextView2"
             android:textSize="20sp"
-            android:text="Typ av buss: "/>
+            android:text=""/>
          <TextView
 android:id="@+id/TextView4"
 android:layout_width="match_parent"
 android:layout_height="wrap_content"
 android:textSize="20sp"
-android:text="buss nmr:"
+android:text=""
 android:layout_below="@id/TextView3"/>
 
     <Button

@@ -11,6 +11,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -20,6 +21,8 @@ public class ControllStep3Activity extends AppCompatActivity {
     public RecyclerView.LayoutManager mlayoutManager;
 
     Button nextButton;
+    TextView Tv1;
+    TextView Tv2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,18 @@ public class ControllStep3Activity extends AppCompatActivity {
         setContentView(R.layout.activity_controll_step3);
 
         nextButton = findViewById(R.id.button_nextthree);
+        Tv1 = findViewById(R.id.TextViewBussNmr);
+        Tv2 = findViewById(R.id.TextViewBusType);
+
+        Intent iin = getIntent();
+        Bundle b = iin.getExtras();
+
+        if (b != null) {
+            String j = (String) b.get("name");
+            Tv2.setText(j);
+            String n = (String) b.get("number");
+            Tv1.setText(n);
+        }
 
 
         ArrayList<cardViewItem> passengerCardTwo = new ArrayList<>();
@@ -55,14 +70,18 @@ public class ControllStep3Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 float awg = mPreference.getFloat("awg", 2);
-
-                      //  float scoreThree = mPreference.getFloat("awg", 2);
-                       // float awgThree = (scoreThree + awg) / 2;
                         editor.putFloat("awgThree", awg);
                         editor.apply();
 
+                Bundle b = new Bundle();
+                String s = Tv1.getText().toString();
+                b.putString("name", s);
+                String n = Tv2.getText().toString();
+                b.putString("number",n);
 
                 Intent nextIntent = new Intent(getApplicationContext(), ControllStep4Activity.class);
+                nextIntent.putExtra("name", s);
+                nextIntent.putExtra("number",n);
                 startActivity(nextIntent);
             }
         });

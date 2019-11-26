@@ -7,13 +7,24 @@
     tools:context=".DisplayActivity">
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/TextView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kontroll av:"
+        android:textSize="40sp" />
+    <TextView
+        android:id="@+id/TextViewBussNmr"
+        android:textSize="40sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        android:gravity="center"
-        android:padding="10dp"
-        android:layout_marginBottom="40dp"/>
+        android:layout_toRightOf="@+id/TextView1"/>
+
+    <TextView
+        android:id="@+id/TextViewBusType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:layout_below="@+id/TextView1"/>
 
 
     <TextView
@@ -21,18 +32,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Steg1 : "
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/TextViewBusType"
         android:textSize="30sp"
         android:padding="10dp"/>
 
-    <EditText
-        android:id="@+id/editTextStep1"
+    <TextView
+        android:id="@+id/tvstep1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/textViewStep1"
         android:layout_alignBaseline="@+id/textViewStep1"
         android:ems="10"
-        android:inputType="number"/>
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/textViewStep2"
@@ -43,14 +54,14 @@
         android:textSize="30sp"
         android:padding="10dp"/>
 
-        <EditText
-            android:id="@+id/editTextStep2"
+        <TextView
+            android:id="@+id/tvstep2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/textViewStep2"
             android:layout_alignBaseline="@+id/textViewStep2"
             android:ems="10"
-            android:inputType="number" />
+            android:textSize="30sp" />
 
     <TextView
         android:id="@+id/textViewStep3"
@@ -61,14 +72,14 @@
         android:textSize="30sp"
         android:padding="10dp"/>
 
-        <EditText
-            android:id="@+id/editTextStep3"
+        <TextView
+            android:id="@+id/tvstep3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/textViewStep3"
             android:layout_alignBaseline="@+id/textViewStep3"
             android:ems="10"
-            android:inputType="number" />
+            android:textSize="30sp" />
 
     <TextView
         android:id="@+id/textViewStep4"
@@ -79,16 +90,41 @@
         android:textSize="30sp"
         android:padding="10dp"/>
 
-    <EditText
-        android:id="@+id/editTextStep4"
+    <TextView
+        android:id="@+id/tvstep4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/textViewStep4"
         android:layout_alignBaseline="@+id/textViewStep4"
         android:ems="10"
-        android:inputType="number" />
+        android:textSize="30sp" />
 
+    <TextView
+        android:id="@+id/textViewSum"
+        android:text="Sum :"
+        android:textSize="30sp"
+        android:layout_below="@+id/tvstep4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"/>
 
+    <TextView
+        android:id="@+id/tvSUM"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/textViewSum"
+        android:layout_below="@+id/tvstep4"
+        android:textSize="30sp"
+        android:layout_marginTop="20dp" />
+
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="204dp"
+        android:text="Spara" />
 
 
 </RelativeLayout>

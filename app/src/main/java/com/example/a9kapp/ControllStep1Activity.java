@@ -27,15 +27,11 @@ public class ControllStep1Activity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     public RecyclerView.LayoutManager mlayoutManager;
 
-    TextView textView1;
-    TextView textView2;
-    TextView textView3;
+    TextView Tv1;
+    TextView Tv2;
     Button nextButton;
     RadioButton radio1;
 
-
-    int bussNMR;
-    RadioGroup radioGroup1;
     RecyclerView recyclerView;
 
     @Override
@@ -43,9 +39,8 @@ public class ControllStep1Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_controll_step1);
 
-        textView1 = (TextView) findViewById(R.id.TextView1);
-        textView2 = (TextView) findViewById(R.id.TextView2);
-        textView3 = (TextView) findViewById(R.id.TextView3);
+        Tv1 = (TextView) findViewById(R.id.TextViewBussNmr);
+        Tv2 = (TextView) findViewById(R.id.TextViewBusType);
         recyclerView = findViewById(R.id.my_recycler_view);
         nextButton = findViewById(R.id.button_next);
 
@@ -56,11 +51,11 @@ public class ControllStep1Activity extends AppCompatActivity {
         Bundle b = iin.getExtras();
 
         if (b != null) {
-            String j = (String) b.get("name");
-            //int bussNMR =(int)b.get("buss");
+                String j = (String) b.get("name");
+                Tv2.setText(j);
+                String n = (String) b.get("number");
+                Tv1.setText(n);
 
-            //textView1.setText(bussNMR);
-            //  textView2.setText(j);
         }
 
 
@@ -96,15 +91,19 @@ public class ControllStep1Activity extends AppCompatActivity {
             public void onClick(View v) {
 
                 float awg = mPreference.getFloat("awg", -1);
-
-                        //float score = mPreference.getFloat("awg", -1);
-                        //float awgOne = (score + awg) / 2;
-                       // Log.d("score", "score1 :" + score);
                         editor.putFloat("awgOne", awg);
                         editor.apply();
 
 
+                Bundle b = new Bundle();
+                String s = Tv1.getText().toString();
+                b.putString("name", s);
+                String n = Tv2.getText().toString();
+                b.putString("number",n);
+
                 Intent newIntent = new Intent(getApplicationContext(), ControllStep2Activity.class);
+                newIntent.putExtra("name", s);
+                newIntent.putExtra("number", n);
                 startActivity(newIntent);
             }
         });

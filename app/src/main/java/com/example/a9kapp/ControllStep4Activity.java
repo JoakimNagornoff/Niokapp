@@ -21,13 +21,8 @@ public class ControllStep4Activity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     public RecyclerView.LayoutManager mlayoutManager;
 
-
-    EditText editText1;
-    EditText editText2;
-    EditText editText3;
-    EditText editText4;
-
-
+    TextView Tv1;
+    TextView Tv2;
     Button nextButton;
 
     @Override
@@ -36,11 +31,20 @@ public class ControllStep4Activity extends AppCompatActivity {
         setContentView(R.layout.activity_controll_step4);
 
         nextButton = (Button) findViewById(R.id.button_nextFour);
+        Tv1 = findViewById(R.id.TextViewBussNmr);
+        Tv2 = findViewById(R.id.TextViewBusType);
 
-        editText1 = (EditText) findViewById(R.id.editTextStep1);
-        editText2 = (EditText)findViewById(R.id.editTextStep2);
-        editText3 = (EditText)findViewById(R.id.editTextStep3);
-        editText4 = (EditText) findViewById(R.id.editTextStep4);
+        Intent iin = getIntent();
+        Bundle b = iin.getExtras();
+
+        if (b != null) {
+            String j = (String) b.get("name");
+            Tv2.setText(j);
+            String n = (String) b.get("number");
+            Tv1.setText(n);
+        }
+
+
 
         ArrayList<cardViewItem> passengerCardFour = new ArrayList<>();
         passengerCardFour.add(new cardViewItem("Passagerarplats", "fönster"));
@@ -72,7 +76,16 @@ public class ControllStep4Activity extends AppCompatActivity {
                 editor.putFloat("awgFour", awg);
                 editor.apply();
 
+
+                Bundle b = new Bundle();
+                String s = Tv1.getText().toString();
+                b.putString("name", s);
+                String n = Tv2.getText().toString();
+                b.putString("number",n);
+
                 Intent nextIntent = new Intent(getApplicationContext(), DisplayActivity.class);
+                nextIntent.putExtra("name", s);
+                nextIntent.putExtra("number",n);
                 startActivity(nextIntent);
             }
         });
