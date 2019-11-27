@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -74,7 +75,7 @@ public class DisplayActivity extends AppCompatActivity {
 
 
         float averageSum = (awgOne + awgTwo + awgThree + awgFour);
-        float sum = averageSum /2;
+        float sum = averageSum /4;
         String textSum = Float.toString(sum);
         tvSum.setText(textSum);
 
@@ -83,23 +84,36 @@ public class DisplayActivity extends AppCompatActivity {
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle b = new Bundle();
-                String s = TV1.getText().toString();
-                b.putString("name", s);
-                String n = TV2.getText().toString();
-                b.putString("number",n);
-                String o = tvSum.getText().toString();
-                b.putString("sum", o);
+            sendEmail();
 
-
-                Intent nextIntent = new Intent(getApplicationContext(), SavedBussActivity.class);
-                nextIntent.putExtra("name", s);
-                nextIntent.putExtra("number", n);
-                nextIntent.putExtra("sum", o);
-                startActivity(nextIntent);
             }
         });
 
+
+    }
+    public void sendEmail(){
+        Bundle email = new Bundle();
+        String a = TV2.getText().toString();
+        email.putString("name", a);
+        String b = TV1.getText().toString();
+        email.putString("number", b);
+        String c = tvSum.getText().toString();
+        email.putString("sum", c);
+
+
+        String[] TO_EMAILS = {"joakim.nagornoff@live.se"};
+
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        //intent.setData(Uri.parse("mailto"));
+        intent.putExtra(Intent.EXTRA_EMAIL, TO_EMAILS);
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Städ Besiktining av :" + " " + b + " " + a  );
+        //intent.putExtra("name", a);
+        intent.putExtra(Intent.EXTRA_TEXT,"BussNmr: " + " " + a);
+        intent.putExtra(Intent.EXTRA_TEXT,"VagnTyp: " +" "  +b);
+        intent.putExtra(Intent.EXTRA_TEXT, "Besiktnings medelvärde" + c);
+        intent.setType("message/rfc822");
+
+        startActivity(Intent.createChooser(intent, "välj en email applikation"));
     }
 
 

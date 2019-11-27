@@ -44,22 +44,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
 
 
-   /* public void saveRadioButtons() {
-        mPreference = PreferenceManager.getDefaultSharedPreferences(context);
-        SharedPreferences.Editor editor = mPreference.edit();
-        editor.putBoolean("first", radio1.isChecked());
-        //editor.putBoolean("second", radio2.isChecked());
-        editor.apply();
-
-    }
-   /* public void loadRadioButtons(){
-        mPreference = PreferenceManager.getDefaultSharedPreferences(context);
-        radio1.setChecked(mPreference.getBoolean("first", false));
-        radio2.setChecked(mPreference.getBoolean("second", false));
-        }*/
-
-    //context method
-
 
     public MyAdapter(ArrayList<cardViewItem> cardViewList, Context context){
         mCardViewList = cardViewList;

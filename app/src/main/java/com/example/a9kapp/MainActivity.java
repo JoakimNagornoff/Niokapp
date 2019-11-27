@@ -16,13 +16,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        startButton = findViewById(R.id.StartButton);
+        startButton =(Button) findViewById(R.id.StartButton);
 
 
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent();
                 Intent valAvBussIntent= new Intent(getApplicationContext(), ValAvBussActivity.class);
                 startActivity(valAvBussIntent);
             }
