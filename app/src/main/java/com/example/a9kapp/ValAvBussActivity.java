@@ -51,9 +51,9 @@ public class ValAvBussActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Bundle a = new Bundle();
                 String s = firstTextView.getText().toString();
-                a.putString("name", s);
+                a.putString("number", s);
                 String n = secondTextView.getText().toString();
-                a.putString("number",n);
+                a.putString("name",n);
 
                 Intent nextActivity= new Intent(getApplicationContext(), ControllStep1Activity.class);
                 nextActivity.putExtra("name",s);
@@ -65,24 +65,22 @@ public class ValAvBussActivity extends AppCompatActivity {
         imageButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("first", "kort vagn");
-                String editTextValue1 = firstTextView.getText().toString();
-                firstTextView.setText( editTextValue1 + "kort vagn");
+                String editTextValue1 = secondTextView.getText().toString();
+                secondTextView.setText( editTextValue1 + "Kort vagn");
             }
         });
         imageButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("second", "led vagn");
-                String editTextValue2 = firstTextView.getText().toString();
-                firstTextView.setText(editTextValue2 + "led vagn ");
+                String editTextValue2 = secondTextView.getText().toString();
+                secondTextView.setText(editTextValue2 + "Led vagn ");
             }
         });
       buttonOK.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
               int bussNMR = Integer.parseInt(editText1.getText().toString());
-              secondTextView.setText(Integer.toString(bussNMR));
+              firstTextView.setText(Integer.toString(bussNMR));
 
 
           }

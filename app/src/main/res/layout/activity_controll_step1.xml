@@ -17,7 +17,9 @@
         android:textSize="40sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/TextView1"/>
+        android:layout_toRightOf="@+id/TextView1"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp" />
 
     <TextView
         android:id="@+id/TextViewBusType"
@@ -29,10 +31,21 @@
 
     <TextView
         android:id="@+id/TextView3"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/TextViewBusType"
         android:text="Steg 1:"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/TextViewHeadliner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/TextView3"
+        android:layout_alignRight="@id/TextView3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="-168dp"
+        android:text="Förarplats"
         android:textSize="30sp" />
 
     <Button
@@ -40,9 +53,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/TextViewBusType"
-        android:layout_alignRight="@+id/TextView3"
-        android:text="Next"
-        />
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="-1dp"
+        android:text="Next" />
 
     <LinearLayout
         android:id="@+id/recyclerViewPart"

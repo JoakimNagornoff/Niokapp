@@ -39,19 +39,19 @@ public class ControllStep4Activity extends AppCompatActivity {
 
         if (b != null) {
             String j = (String) b.get("name");
-            Tv2.setText(j);
+            Tv1.setText(j);
             String n = (String) b.get("number");
-            Tv1.setText(n);
+            Tv2.setText(n);
         }
 
 
 
         ArrayList<cardViewItem> passengerCardFour = new ArrayList<>();
-        passengerCardFour.add(new cardViewItem("Passagerarplats", "fönster"));
-        passengerCardFour.add(new cardViewItem("Passagerarplats","golv"));
-        passengerCardFour.add(new cardViewItem("Passagerarplats", "stänger"));
-        passengerCardFour.add(new cardViewItem("Passageraplats", "säten"));
-        passengerCardFour.add(new cardViewItem("Passagerarplats", "tak"));
+        passengerCardFour.add(new cardViewItem("Passagerarplats", "Fönster"));
+        passengerCardFour.add(new cardViewItem("Passageraplats", "Fönsterkarm"));
+        passengerCardFour.add(new cardViewItem("Passagerarplats","Golv"));
+        passengerCardFour.add(new cardViewItem("Passagerarplats", "Stänger"));
+        passengerCardFour.add(new cardViewItem("Passagerarplats", "Tak"));
 
         ArrayList<cardViewItem> cardViewList = new ArrayList<>();
         cardViewList.addAll(passengerCardFour);

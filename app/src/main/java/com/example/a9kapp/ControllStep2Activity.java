@@ -41,19 +41,19 @@ public class ControllStep2Activity extends AppCompatActivity {
         Bundle b = iin.getExtras();
 
         if (b != null) {
-            String j = (String) b.get("name");
-            Tv2.setText(j);
             String n = (String) b.get("number");
-            Tv1.setText(n);
+            Tv2.setText(n);
+           String j = (String) b.get("name");
+            Tv1.setText(j);
         }
 
             //skapar arraylast PassagerarCard
         ArrayList<cardViewItem> passengerCard = new ArrayList<>();
         passengerCard.add(new cardViewItem("Passagerarplats","Fönster"));
-        passengerCard.add(new cardViewItem("Passagerarplats","golv"));
-        passengerCard.add(new cardViewItem("Passagerarplats", "stänger"));
-        passengerCard.add(new cardViewItem("Passageraplats", "säten"));
-        passengerCard.add(new cardViewItem("Passagerarplats", "tak"));
+        passengerCard.add(new cardViewItem("Passageraplats", "Fönsterkarm"));
+        passengerCard.add(new cardViewItem("Passagerarplats","Golv"));
+        passengerCard.add(new cardViewItem("Passagerarplats", "Stänger"));;
+        passengerCard.add(new cardViewItem("Passagerarplats", "Tak"));
 
         //adderar nya listan till cardViewlist för adaptern.
         ArrayList<cardViewItem> cardViewList = new ArrayList<>();
@@ -79,13 +79,13 @@ public class ControllStep2Activity extends AppCompatActivity {
 
                 Bundle b = new Bundle();
                 String s = Tv1.getText().toString();
-                b.putString("name", s);
+                b.putString("number", s);
                 String n = Tv2.getText().toString();
                 b.putString("number",n);
 
                 Intent newIntent = new Intent(getApplicationContext(), ControllStep3Activity.class);
+                newIntent.putExtra("number", n);
                 newIntent.putExtra("name", s);
-                newIntent.putExtra("number",n);
                 startActivity(newIntent);
 
 

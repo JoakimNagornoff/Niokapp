@@ -37,19 +37,19 @@ public class ControllStep3Activity extends AppCompatActivity {
         Bundle b = iin.getExtras();
 
         if (b != null) {
-            String j = (String) b.get("name");
-            Tv2.setText(j);
-            String n = (String) b.get("number");
+            String s = (String) b.get("number");
+            Tv2.setText(s);
+            String n = (String) b.get("name");
             Tv1.setText(n);
         }
 
 
         ArrayList<cardViewItem> passengerCardTwo = new ArrayList<>();
         passengerCardTwo.add(new cardViewItem("Passagerarplats","Fönster"));
-        passengerCardTwo.add(new cardViewItem("Passagerarplats","golv"));
-        passengerCardTwo.add(new cardViewItem("Passagerarplats", "stänger"));
-        passengerCardTwo.add(new cardViewItem("Passageraplats", "säten"));
-        passengerCardTwo.add(new cardViewItem("Passagerarplats", "tak"));
+        passengerCardTwo.add(new cardViewItem("Passageraplats", "Fönsterkarm"));
+        passengerCardTwo.add(new cardViewItem("Passagerarplats","Golv"));
+        passengerCardTwo.add(new cardViewItem("Passagerarplats", "Stänger"));
+        passengerCardTwo.add(new cardViewItem("Passagerarplats", "Tak"));
 
 
         ArrayList<cardViewItem> cardViewList = new ArrayList<>();
@@ -75,14 +75,14 @@ public class ControllStep3Activity extends AppCompatActivity {
 
                 Bundle b = new Bundle();
                 String s = Tv1.getText().toString();
-                b.putString("name", s);
+                b.putString("number", s);
                 String n = Tv2.getText().toString();
                 b.putString("number",n);
 
-                Intent nextIntent = new Intent(getApplicationContext(), ControllStep4Activity.class);
-                nextIntent.putExtra("name", s);
-                nextIntent.putExtra("number",n);
-                startActivity(nextIntent);
+                Intent newIntent = new Intent(getApplicationContext(), ControllStep4Activity.class);
+                newIntent.putExtra("number", n);
+                newIntent.putExtra("name", s);
+                startActivity(newIntent);
             }
         });
     }

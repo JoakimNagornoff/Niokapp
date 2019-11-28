@@ -23,6 +23,7 @@ public class DisplayActivity extends AppCompatActivity {
     TextView tv4;
     TextView tvSum;
     Button buttonSave;
+    Button nextBuss;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,15 +39,16 @@ public class DisplayActivity extends AppCompatActivity {
         tv4 = (TextView) findViewById(R.id.tvstep4);
         tvSum = (TextView) findViewById(R.id.tvSUM);
         buttonSave = (Button) findViewById(R.id.buttonSave);
+        nextBuss = (Button) findViewById(R.id.nextBuss);
 
         Intent iin = getIntent();
         Bundle b = iin.getExtras();
 
         if (b != null) {
-            String j = (String) b.get("name");
-            TV2.setText(j);
             String n = (String) b.get("number");
-            TV1.setText(n);
+            TV2.setText(n);
+            String j = (String) b.get("name");
+            TV1.setText(j);
         }
 
 
@@ -88,6 +90,13 @@ public class DisplayActivity extends AppCompatActivity {
 
             }
         });
+        nextBuss.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent nextIntent = new Intent(getApplicationContext(), ValAvBussActivity.class);
+                startActivity(nextIntent);
+            }
+        });
 
 
     }
@@ -104,17 +113,14 @@ public class DisplayActivity extends AppCompatActivity {
         String[] TO_EMAILS = {"joakim.nagornoff@live.se"};
 
         Intent intent = new Intent(Intent.ACTION_SEND);
-        //intent.setData(Uri.parse("mailto"));
         intent.putExtra(Intent.EXTRA_EMAIL, TO_EMAILS);
         intent.putExtra(Intent.EXTRA_SUBJECT, "Städ Besiktining av :" + " " + b + " " + a  );
-        //intent.putExtra("name", a);
-        intent.putExtra(Intent.EXTRA_TEXT,"BussNmr: " + " " + a);
-        intent.putExtra(Intent.EXTRA_TEXT,"VagnTyp: " +" "  +b);
-        intent.putExtra(Intent.EXTRA_TEXT, "Besiktnings medelvärde" + c);
+        intent.putExtra(Intent.EXTRA_TEXT, "Besiktnings medelvärde :"+" " + c);
         intent.setType("message/rfc822");
 
         startActivity(Intent.createChooser(intent, "välj en email applikation"));
     }
+
 
 
 

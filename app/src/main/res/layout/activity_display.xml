@@ -17,7 +17,9 @@
         android:textSize="40sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/TextView1"/>
+        android:layout_toRightOf="@+id/TextView1"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"/>
 
     <TextView
         android:id="@+id/TextViewBusType"
@@ -106,7 +108,9 @@
         android:layout_below="@+id/tvstep4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp" />
 
     <TextView
         android:id="@+id/tvSUM"
@@ -115,7 +119,9 @@
         android:layout_toRightOf="@+id/textViewSum"
         android:layout_below="@+id/tvstep4"
         android:textSize="30sp"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"/>
 
     <Button
         android:id="@+id/buttonSave"
@@ -124,7 +130,16 @@
         android:layout_below="@+id/tvSUM"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="Spara" />
+        android:text="Skicka mail" />
+
+    <Button
+        android:id="@+id/nextBuss"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="130dp"
+        android:text="Nästa buss" />
 
 
 </RelativeLayout>

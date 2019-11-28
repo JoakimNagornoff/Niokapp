@@ -52,18 +52,18 @@ public class ControllStep1Activity extends AppCompatActivity {
 
         if (b != null) {
                 String j = (String) b.get("name");
-                Tv2.setText(j);
+                Tv1.setText(j);
                 String n = (String) b.get("number");
-                Tv1.setText(n);
+                Tv2.setText(n);
 
         }
 
 
         //skapar arraylist med driverCard.(Förarplats)
         ArrayList<cardViewItem> driverCard = new ArrayList<>();
-        driverCard.add(new cardViewItem("Förarplats", "Stol"));
-        driverCard.add(new cardViewItem("Förarplats", "Spegel"));
-        driverCard.add(new cardViewItem("Förarplats", "Vindrutor/Fönster"));
+        driverCard.add(new cardViewItem("Förarplats", "Speglar"));
+        driverCard.add(new cardViewItem("Förarplats", "Vindruta"));
+        driverCard.add(new cardViewItem("Förarplats", "Fönster"));
         driverCard.add(new cardViewItem("Förarplats", "FönsterPanel"));
         driverCard.add(new cardViewItem("Förarplats", "Instrumentpanel"));
 
@@ -97,13 +97,13 @@ public class ControllStep1Activity extends AppCompatActivity {
 
                 Bundle b = new Bundle();
                 String s = Tv1.getText().toString();
-                b.putString("name", s);
+                b.putString("number", s);
                 String n = Tv2.getText().toString();
                 b.putString("number",n);
 
                 Intent newIntent = new Intent(getApplicationContext(), ControllStep2Activity.class);
-                newIntent.putExtra("name", s);
                 newIntent.putExtra("number", n);
+                newIntent.putExtra("name", s);
                 startActivity(newIntent);
             }
         });
